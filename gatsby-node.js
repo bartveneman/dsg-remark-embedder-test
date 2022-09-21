@@ -8,7 +8,7 @@ exports.createPages = async ({ actions, graphql }) => {
       allMarkdownRemark {
         nodes {
           frontmatter {
-            title
+            slug
           }
         }
       }
@@ -19,7 +19,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   result.data.allMarkdownRemark.nodes.forEach(node => {
     createPage({
-      path: node.frontmatter.title,
+      path: node.frontmatter.slug,
       component: templatePath,
       context: {
         slug: node.frontmatter.slug,
